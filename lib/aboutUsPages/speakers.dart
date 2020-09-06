@@ -13,6 +13,8 @@ class _SpeakersState extends State<Speakers> {
   final fireStore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool darkModeOn = brightness == Brightness.dark;
     return StreamBuilder<QuerySnapshot>(stream: fireStore.collection('speakers').snapshots(),
       builder: (context,snapshot){
       if(snapshot.hasData){
@@ -23,7 +25,7 @@ class _SpeakersState extends State<Speakers> {
           final messageBio=message.data()['Bio'];
           final messageImage=message.data()['Image'];
           final messageWidget = SpeakerTile(
-            name: messageText,bio: messageBio,image: messageImage,
+            name: messageText,bio: messageBio,image: messageImage,darkModeOn: darkModeOn,
           );
           messageWidgets.add(messageWidget);
         }

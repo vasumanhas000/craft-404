@@ -1,12 +1,14 @@
 import 'package:craft404_app/bottomnavbar.dart';
 import 'package:craft404_app/constants.dart';
+import 'services/push_notification_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 
-void main() async{
+Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await PushNotificationsManager().init();
   runApp(MyApp());
 }
 
@@ -18,14 +20,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        textTheme: TextTheme(
+          body1: TextStyle(color: kConstSecondaryColor),
+          body2: TextStyle(color: kConstSecondaryColor),
+          button: TextStyle(color: kConstSecondaryColor),
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: kConstSecondaryColor,
+        scaffoldBackgroundColor: Colors.white,
         tabBarTheme: TabBarTheme(
           indicator: UnderlineTabIndicator(
-            borderSide: BorderSide(color: kConstMainColor,width: 4),
+            borderSide: BorderSide(color: kConstMainColor,width: 3),
           ),
-          labelStyle: kConstTabStyle,
-          unselectedLabelStyle: kConstTabStyle,
           indicatorSize: TabBarIndicatorSize.label,
         ),
       ),
@@ -41,8 +46,6 @@ class MyApp extends StatelessWidget {
           indicator: UnderlineTabIndicator(
             borderSide: BorderSide(color: Colors.white,width: 3),
           ),
-          labelStyle: kConstTabStyle,
-          unselectedLabelStyle: kConstTabStyle,
           indicatorSize: TabBarIndicatorSize.label,
         ),
       ),

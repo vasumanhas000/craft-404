@@ -13,6 +13,8 @@ class _SponsorsState extends State<Sponsors> {
   final fireStore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool darkModeOn = brightness == Brightness.dark;
     return StreamBuilder<QuerySnapshot>(stream: fireStore.collection('sponsors').snapshots(),
       builder: (context,snapshot){
         if(snapshot.hasData){
@@ -21,7 +23,7 @@ class _SponsorsState extends State<Sponsors> {
           for(var message in messages){
             final messageImage = message.data()['image'];
             print(messageImage);
-            final messageWidget = SponsorTile(byteImage:messageImage);
+            final messageWidget = SponsorTile(byteImage:messageImage,darkModeOn: darkModeOn,);
             messageWidgets.add(messageWidget);
           }
           return Padding(

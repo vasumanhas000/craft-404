@@ -13,14 +13,17 @@ class _GuidelinesState extends State<Guidelines> {
   final fireStore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(stream: fireStore.collection('guidelines').snapshots(),
-      builder: (context,snapshot){
-        if(snapshot.hasData){
-          final messages= snapshot.data.docs;
-          List<Widget> messageWidgets=[];
-          for(var message in messages){
+    return StreamBuilder<QuerySnapshot>(
+      stream: fireStore.collection('guidelines').snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final messages = snapshot.data.docs;
+          List<Widget> messageWidgets = [];
+          for (var message in messages) {
             final messageText = message.data()['text'];
-            final messageWidget = GuidelinesTile(text: messageText,);
+            final messageWidget = GuidelinesTile(
+              text: messageText,
+            );
             messageWidgets.add(messageWidget);
           }
           return Padding(
@@ -29,8 +32,7 @@ class _GuidelinesState extends State<Guidelines> {
               children: messageWidgets,
             ),
           );
-        }
-        else{
+        } else {
           return Center(
             child: SpinKitDoubleBounce(
               color: kConstMainColor,

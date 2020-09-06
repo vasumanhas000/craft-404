@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class SpeakerTile extends StatelessWidget {
   final String name,bio,image;
-  SpeakerTile({this.name,this.bio,this.image});
+  final bool darkModeOn;
+  SpeakerTile({this.name,this.bio,this.image,this.darkModeOn});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,10 +13,19 @@ class SpeakerTile extends StatelessWidget {
         child: Column(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image(image: NetworkImage(image),height: 100,width: 100,color: Colors.white,),
-                Text(name,style: kConstHeadingStyle,),
+                SizedBox(width: 70,),
+                Image(image: NetworkImage(image),height: 100,width: 100,color:darkModeOn?Colors.white:kConstSecondaryColor,),
+                SizedBox(width: 24,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(name.split(' ')[0],style: kConstHeadingStyle.copyWith(fontSize: 24),),
+                    SizedBox(height: 4,),
+                    Text(name.split(' ')[1],style: kConstHeadingStyle.copyWith(fontSize: 24),),
+                  ],
+                ),
               ],
             ),
             SizedBox(height: 16,),

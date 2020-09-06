@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:expandable/expandable.dart';
 
 class FaqTile extends StatelessWidget {
-  String title,body;
-  FaqTile({this.body,this.title});
+  final String title,body;
+  final bool isDarkMode;
+  FaqTile({this.body,this.title,this.isDarkMode});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +16,7 @@ class FaqTile extends StatelessWidget {
         expanded: Text(body, softWrap: true,style: kConstTextStyle,),
         tapHeaderToExpand: true,
         hasIcon: true,
-        iconColor: Colors.white,
+        iconColor: isDarkMode?Colors.white:kConstSecondaryColor,
       ),
     );
   }

@@ -13,6 +13,8 @@ class AboutUs extends StatefulWidget {
 class _AboutUsState extends State<AboutUs> {
   @override
   Widget build(BuildContext context) {
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool darkModeOn = brightness == Brightness.dark;
     return DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -20,23 +22,31 @@ class _AboutUsState extends State<AboutUs> {
             elevation: 0,
             title: Padding(
               padding: const EdgeInsets.only(top: 8),
-              child: Text('About us',style: kConstHeadingStyle,),
+              child: Text('About us',style: kConstHeadingStyle.copyWith(
+                color: darkModeOn?Colors.white:kConstSecondaryColor
+              ),),
             ),
-            backgroundColor: kConstSecondaryColor,
+            backgroundColor: darkModeOn?kConstSecondaryColor:Colors.white,
             bottom:  PreferredSize(
               preferredSize: Size.fromHeight(45),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: ColoredTabBar(kConstSecondaryColor, TabBar(
+                child: ColoredTabBar(darkModeOn?kConstSecondaryColor:Colors.white, TabBar(
                   tabs: [
                     Tab(
-                      child: Text('Chapters'),
+                      child: Text('Chapters',style: kConstTabStyle.copyWith(
+                      color: darkModeOn?Colors.white:kConstSecondaryColor
+                      ),),
                     ),
                     Tab(
-                        child: Text('Speakers')
+                        child: Text('Speakers',style: kConstTabStyle.copyWith(
+                            color: darkModeOn?Colors.white:kConstSecondaryColor
+                        ),)
                     ),
                     Tab(
-                        child: Text('Sponsors')
+                        child: Text('Sponsors',style: kConstTabStyle.copyWith(
+                            color: darkModeOn?Colors.white:kConstSecondaryColor
+                        ),)
                     ),
                   ],
                   isScrollable: true,

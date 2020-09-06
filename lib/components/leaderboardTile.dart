@@ -14,7 +14,7 @@ class LeaderBoardTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Icon(Icons.cake,color: Colors.white,size: 60,),
+            Icon(Icons.cake,color: Colors.grey,size: 60,),
             SizedBox(
               width: 80,
             ),
