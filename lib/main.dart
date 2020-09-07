@@ -1,5 +1,6 @@
 import 'package:craft404_app/bottomnavbar.dart';
 import 'package:craft404_app/constants.dart';
+import 'package:craft404_app/splash.dart';
 import 'services/push_notification_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
           indicatorSize: TabBarIndicatorSize.label,
         ),
       ),
-      home: BottomNav(),
+      home: SplashScreen(),
     );
   }
 }

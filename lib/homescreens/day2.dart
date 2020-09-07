@@ -8,6 +8,8 @@ class Day2 extends StatelessWidget {
   final fireStore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool darkModeOn = brightness == Brightness.dark;
     return StreamBuilder<QuerySnapshot>(stream: fireStore.collection('day2').snapshots(),
       builder: (context,snapshot){
         if(snapshot.hasData){
@@ -15,7 +17,7 @@ class Day2 extends StatelessWidget {
           List<Widget> messageWidgets=[];
           for(var message in messages){
             final messageImage = message.data()['image'];
-            final messageWidget = Timeline(url: messageImage,);
+            final messageWidget = Timeline(url: messageImage,darkModeOn: darkModeOn,);
             messageWidgets.add(messageWidget);
           }
           return Padding(
