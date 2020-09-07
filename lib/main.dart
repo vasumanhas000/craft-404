@@ -22,21 +22,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: TextTheme(
-          body1: TextStyle(color: kConstSecondaryColor),
-          body2: TextStyle(color: kConstSecondaryColor),
-          button: TextStyle(color: kConstSecondaryColor),
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: Colors.white,
-        tabBarTheme: TabBarTheme(
-          indicator: UnderlineTabIndicator(
-            borderSide: BorderSide(color: kConstMainColor,width: 3),
-          ),
-          indicatorSize: TabBarIndicatorSize.label,
-        ),
-      ),
-      darkTheme: ThemeData(
-        textTheme: TextTheme(
           body1: TextStyle(color: Colors.white),
           body2: TextStyle(color: Colors.white),
           button: TextStyle(color: Colors.white),

@@ -42,6 +42,7 @@ class _BottomNavState extends State<BottomNav> {
         showSelectedLabels: true,
         showUnselectedLabels: false,
         selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         backgroundColor: kConstMainColor,
         items: const <BottomNavigationBarItem>[

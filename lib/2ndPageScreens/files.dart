@@ -13,8 +13,6 @@ class _FilesState extends State<Files> {
   final fireStore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
-    var brightness = MediaQuery.of(context).platformBrightness;
-    bool darkModeOn = brightness == Brightness.dark;
     return StreamBuilder<QuerySnapshot>(stream: fireStore.collection('files').snapshots(),
       builder: (context,snapshot){
         if(snapshot.hasData){
@@ -26,7 +24,7 @@ class _FilesState extends State<Files> {
             final messageIcon = message.data()['icon'];
             final messageLink=message.data()['link'];
             final messageDate=message.data()['date'];
-            final messageWidget = FileTile(name: messageName,bio: messageDescription,icon: messageIcon,date: messageDate,link: messageLink,darkModeOn: darkModeOn,);
+            final messageWidget = FileTile(name: messageName,bio: messageDescription,icon: messageIcon,date: messageDate,link: messageLink,);
             messageWidgets.add(messageWidget);
           }
           return Padding(

@@ -5,8 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 class Chapters extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var brightness = MediaQuery.of(context).platformBrightness;
-    bool darkModeOn = brightness == Brightness.dark;
     return ListView(
       children: [Padding(
         padding: const EdgeInsets.fromLTRB(16,24,16,0),
@@ -24,7 +22,7 @@ class Chapters extends StatelessWidget {
                           image: AssetImage('images/stc.png'),
                           height: 100,
                           width: 100,
-                          color: darkModeOn?Colors.white:kConstSecondaryColor,
+                          color: Colors.white,
                         ),
                         SizedBox(width: 24,),
                         Column(
@@ -54,11 +52,11 @@ class Chapters extends StatelessWidget {
                       children: [
                         Padding(padding: EdgeInsets.only(top: 4),child:  Text('Contact Us',style: kConstHeadingStyle.copyWith(fontSize: 16),),),
                         SizedBox(width: 18,),
-                        SvgPicture.asset('images/facebook.svg',color: darkModeOn?Colors.white:kConstMainColor,height: 22,),
+                        SvgPicture.asset('images/facebook.svg',color: Colors.white,height: 22,),
                         SizedBox(width: 20,),
-                        SvgPicture.asset('images/linkedin.svg',color: darkModeOn?Colors.white:kConstMainColor,height: 22,),
+                        SvgPicture.asset('images/linkedin.svg',color:Colors.white,height: 22,),
                         SizedBox(width: 20,),
-                        SvgPicture.asset('images/insta.svg',color: darkModeOn?Colors.white:kConstMainColor,height: 22,),
+                        SvgPicture.asset('images/insta.svg',color: Colors.white,height: 22,),
                       ],
                     ),
                   ],
@@ -77,7 +75,7 @@ class Chapters extends StatelessWidget {
                           image: AssetImage('images/stc.png'),
                           height: 100,
                           width: 100,
-                          color: darkModeOn?Colors.white:kConstSecondaryColor,
+                          color: Colors.white,
                         ),
                         SizedBox(width: 24,),
                         Column(
@@ -107,11 +105,11 @@ class Chapters extends StatelessWidget {
                       children: [
                         Padding(padding: EdgeInsets.only(top: 4),child:  Text('Contact Us',style: kConstHeadingStyle.copyWith(fontSize: 16),),),
                         SizedBox(width: 18,),
-                        SvgPicture.asset('images/facebook.svg',color: darkModeOn?Colors.white:kConstMainColor,height: 22,),
+                        SvgPicture.asset('images/facebook.svg',color: Colors.white,height: 22,),
                         SizedBox(width: 20,),
-                        SvgPicture.asset('images/linkedin.svg',color: darkModeOn?Colors.white:kConstMainColor,height: 22,),
+                        SvgPicture.asset('images/linkedin.svg',color: Colors.white,height: 22,),
                         SizedBox(width: 20,),
-                        SvgPicture.asset('images/insta.svg',color: darkModeOn?Colors.white:kConstMainColor,height: 22,),
+                        SvgPicture.asset('images/insta.svg',color: Colors.white,height: 22,),
                       ],
                     ),
                   ],

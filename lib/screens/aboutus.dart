@@ -13,8 +13,6 @@ class AboutUs extends StatefulWidget {
 class _AboutUsState extends State<AboutUs> {
   @override
   Widget build(BuildContext context) {
-    var brightness = MediaQuery.of(context).platformBrightness;
-    bool darkModeOn = brightness == Brightness.dark;
     return DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -23,29 +21,29 @@ class _AboutUsState extends State<AboutUs> {
             title: Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text('About us',style: kConstHeadingStyle.copyWith(
-                color: darkModeOn?Colors.white:kConstSecondaryColor
+                color:Colors.white
               ),),
             ),
-            backgroundColor: darkModeOn?kConstSecondaryColor:Colors.white,
+            backgroundColor:kConstSecondaryColor,
             bottom:  PreferredSize(
               preferredSize: Size.fromHeight(45),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: ColoredTabBar(darkModeOn?kConstSecondaryColor:Colors.white, TabBar(
+                child: ColoredTabBar(kConstSecondaryColor, TabBar(
                   tabs: [
                     Tab(
                       child: Text('Chapters',style: kConstTabStyle.copyWith(
-                      color: darkModeOn?Colors.white:kConstSecondaryColor
+                      color:Colors.white
                       ),),
                     ),
                     Tab(
                         child: Text('Speakers',style: kConstTabStyle.copyWith(
-                            color: darkModeOn?Colors.white:kConstSecondaryColor
+                            color: Colors.white
                         ),)
                     ),
                     Tab(
                         child: Text('Sponsors',style: kConstTabStyle.copyWith(
-                            color: darkModeOn?Colors.white:kConstSecondaryColor
+                            color: Colors.white
                         ),)
                     ),
                   ],

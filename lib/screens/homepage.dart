@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var brightness = MediaQuery.of(context).platformBrightness;
-    bool darkModeOn = brightness == Brightness.dark;
     return DefaultTabController(
         length: 2,
         child: Scaffold(
@@ -17,24 +15,24 @@ class HomePage extends StatelessWidget {
             title: Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text('Timeline',style: kConstHeadingStyle.copyWith(
-                  color: darkModeOn?Colors.white:kConstSecondaryColor
+                  color: Colors.white
               ),),
             ),
-            backgroundColor: darkModeOn?kConstSecondaryColor:Colors.white,
+            backgroundColor: kConstSecondaryColor,
             bottom:  PreferredSize(
               preferredSize: Size.fromHeight(45),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: ColoredTabBar(darkModeOn?kConstSecondaryColor:Colors.white, TabBar(
+                child: ColoredTabBar(kConstSecondaryColor, TabBar(
                   tabs: [
                   Tab(
                     child: Text('Day 1',style: kConstTabStyle.copyWith(
-                        color: darkModeOn?Colors.white:kConstSecondaryColor
+                        color: Colors.white,
                     ),),
                   ),
                   Tab(
                       child: Text('Day 2',style: kConstTabStyle.copyWith(
-                          color: darkModeOn?Colors.white:kConstSecondaryColor
+                          color: Colors.white
                       ),)
                   ),
                 ],

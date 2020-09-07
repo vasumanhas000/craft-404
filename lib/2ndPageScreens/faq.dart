@@ -13,8 +13,6 @@ class _FAQState extends State<FAQ> {
   final fireStore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
-    var brightness = MediaQuery.of(context).platformBrightness;
-    bool darkModeOn = brightness == Brightness.dark;
     return StreamBuilder<QuerySnapshot>(stream: fireStore.collection('faq').snapshots(),
       builder: (context,snapshot){
         if(snapshot.hasData){
@@ -23,7 +21,7 @@ class _FAQState extends State<FAQ> {
           for(var message in messages){
             final messageQuestion = message.data()['question'];
             final messageAnswer = message.data()['answer'];
-            final messageWidget = FaqTile(title: messageQuestion,body: messageAnswer,isDarkMode: darkModeOn,);
+            final messageWidget = FaqTile(title: messageQuestion,body: messageAnswer,);
             messageWidgets.add(messageWidget);
           }
           return Padding(

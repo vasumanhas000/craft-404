@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 
 class Timeline extends StatelessWidget {
   final String url;
-  final bool darkModeOn;
-  Timeline({this.url,this.darkModeOn});
+  Timeline({this.url});
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Image(image: NetworkImage(url),color: darkModeOn?null:kConstSecondaryColor,),
+      child: Image(image: NetworkImage(url),),
     );
   }
 }
