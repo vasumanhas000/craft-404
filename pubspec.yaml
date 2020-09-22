@@ -49,6 +49,9 @@ flutter:
     - family: Gotham-Medium
       fonts:
         - asset: fonts/GothamMedium.ttf
+    - family: SFPro-Text
+      fonts:
+        - asset: fonts/SFProText.ttf
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
