@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>254065622972-rdan6nk2uj2rij1cob11e49se35ggsht.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.254065622972-rdan6nk2uj2rij1cob11e49se35ggsht</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAcSgHtwninvfp-oN82AL-6frKmEaqFow8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>254065622972</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.stc.craft404App</string>
+	<key>PROJECT_ID</key>
+	<string>craft404-42e3f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>craft404-42e3f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:254065622972:ios:37e9050e93b4c4128a35b9</string>
+	<key>DATABASE_URL</key>
+	<string>https://craft404-42e3f.firebaseio.com</string>
+</dict>
+</plist>

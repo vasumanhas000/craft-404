@@ -28,8 +28,27 @@ class _GuidelinesState extends State<Guidelines> {
           }
           return Padding(
             padding: const EdgeInsets.only(top: 24),
-            child: ListView(
-              children: messageWidgets,
+            child: Column(
+                          children: [
+                            Expanded(
+                                                          child: ListView(
+                children: messageWidgets,
+              ),
+                            ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: ButtonTheme(
+                      height: 38,
+                                        child: FlatButton(onPressed: (){}, child: Text('Submission Portal',style: kConstHeadingStyle.copyWith(
+                        color:Colors.white,fontSize:14
+                      ),),
+                      color: kConstMainColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius:BorderRadius.circular(5)
+                      ),),
+                    ),
+                  )
+              ]
             ),
           );
         } else {
