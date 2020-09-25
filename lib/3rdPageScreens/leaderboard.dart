@@ -15,6 +15,7 @@ class _LeaderBoardState extends State<LeaderBoard> {
     return StreamBuilder<QuerySnapshot>(stream: fireStore.collection('leaderboard').snapshots(),
       builder: (context,snapshot){
         if(snapshot.hasData){
+          print('hasdata');
           final messages= snapshot.data.docs;
           List<Widget> messageWidgets=[];
           for(var message in messages){
@@ -25,14 +26,20 @@ class _LeaderBoardState extends State<LeaderBoard> {
           }
           return Padding(
             padding: const EdgeInsets.only(top: 24),
-            child: ListView(
+            child: messageWidgets.length!=0?ListView(
               children: messageWidgets,
-            ),
+            ):Center(
+                child: Text('LeaderBoard will be displayed here',style: kConstHeadingStyle.copyWith(fontSize: 20),)
+            )
           );
         }
         else{
-          return Center(
-            child: Text('LeaderBoard will be displayed here',style: kConstHeadingStyle.copyWith(fontSize: 20),)
+          print('does not have data');
+          return Padding(
+            padding: const EdgeInsets.only(top: 24),
+            child: Center(
+              child: Text('LeaderBoard will be displayed here',style: kConstHeadingStyle.copyWith(fontSize: 20),)
+            ),
           );
         }
       },
