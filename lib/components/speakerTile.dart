@@ -8,27 +8,18 @@ class SpeakerTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16,0,16,42),
+        padding: const EdgeInsets.fromLTRB(0,0,16,42),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(width: 70,),
-                Image(image: NetworkImage(image),height: 100,width: 100,color:Colors.white,),
-                SizedBox(width: 24,),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(name.split(' ')[0],style: kConstHeadingStyle.copyWith(fontSize: 24),),
-                    SizedBox(height: 4,),
-                    Text(name.split(' ')[1],style: kConstHeadingStyle.copyWith(fontSize: 24),),
-                  ],
-                ),
-              ],
+            Image(image: NetworkImage(image),height: 150,width: 150,),
+            SizedBox(height: 6,),
+            Text(name,style: kConstHeadingStyle.copyWith(fontSize: 24),),
+            SizedBox(height: 12,),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Text(bio,style: kConstTextStyle,),
             ),
-            SizedBox(height: 16,),
-            Text(bio,style: kConstTextStyle,),
           ],
         ),
       ),

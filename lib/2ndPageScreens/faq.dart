@@ -21,7 +21,8 @@ class _FAQState extends State<FAQ> {
           for(var message in messages){
             final messageQuestion = message.data()['question'];
             final messageAnswer = message.data()['answer'];
-            final messageWidget = FaqTile(title: messageQuestion,body: messageAnswer,);
+            final isdoubleLine=message.data()['doubleLine'];
+            final messageWidget = FaqTile(title: messageQuestion,body: messageAnswer,doubleLine: isdoubleLine,);
             messageWidgets.add(messageWidget);
           }
           return Padding(

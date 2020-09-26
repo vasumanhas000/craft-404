@@ -1,8 +1,16 @@
 import 'package:craft404_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Chapters extends StatelessWidget {
+  void launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -14,36 +22,11 @@ class Chapters extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 42),
               child: Container(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(width: 70,),
-                        Image(
-                          image: AssetImage('images/stc.png'),
-                          height: 100,
-                          width: 100,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 24,),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Student',
-                              style: kConstHeadingStyle.copyWith(fontSize: 24),
-                            ),
-                            SizedBox(height: 4,),
-                            Text('Technical', style: kConstHeadingStyle.copyWith(fontSize: 24)),
-                            SizedBox(height: 4,),
-                            Text('Community', style: kConstHeadingStyle.copyWith(fontSize: 24)),
-                          ],
-                        ),
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.start,
-                    ),
+                    SvgPicture.asset('images/stc.svg',height: 100,),
                     SizedBox(height: 16,),
-                    Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum venenatis ligula, vel tincidunt velit mattis non. Etiam sed nibh in dui lobortis semper. Vestibulum erat quam, aliquet sit amet magna quis, posuere elementum tortor. Pellentesque euismod orci tellus, a rhoncus orci porta eu. Etiam sed auctor ligula. Curabitur scelerisque eros lectus, non vulputate velit accumsan quis. Quisque sollicitudin, justo in lobortis varius, odio tortor aliquet mi, sit amet dignissim risus odio a tortor. ',style: kConstTextStyle),
+                    Text('Student Technical Community, VIT is a team of enthusiastic techies and excited learners from the no. 1 private engg. college of India - VIT.  With over 11 Microsoft Student Partners and Alexa Student Influencers amongst us, our chapter has been known for organizing some of the most eminent events across the campus. We are proud curators and mentors of 15+ tech talks, 10+ projects, an active medium platform, and of course, our flagship event “BREW” which had 250+ attendees. We have a mission to foster innovation via projects, while collaborating with students on our campus through workshops, webinars, and events that ensure a definitive transfer of knowledge.'),
                     SizedBox(
                       height: 8,
                     ),
@@ -52,11 +35,17 @@ class Chapters extends StatelessWidget {
                       children: [
                         Padding(padding: EdgeInsets.only(top: 4),child:  Text('Contact Us',style: kConstHeadingStyle.copyWith(fontSize: 16),),),
                         SizedBox(width: 18,),
-                        SvgPicture.asset('images/facebook.svg',color: Colors.white,height: 22,),
+                        GestureDetector(child: SvgPicture.asset('images/facebook.svg',color: Colors.white,height: 22,),onTap: (){
+                          launchURL('https://www.facebook.com/mstcvit');
+                        },),
                         SizedBox(width: 20,),
-                        SvgPicture.asset('images/linkedin.svg',color:Colors.white,height: 22,),
+                        GestureDetector(child: SvgPicture.asset('images/linkedin.svg',color:Colors.white,height: 22,),onTap: (){
+                          launchURL('https://www.linkedin.com/company/micvitvellore');
+                        },),
                         SizedBox(width: 20,),
-                        SvgPicture.asset('images/insta.svg',color: Colors.white,height: 22,),
+                        GestureDetector(child: SvgPicture.asset('images/insta.svg',color: Colors.white,height: 22,),onTap: (){
+                          launchURL('https://www.instagram.com/mstcvit/?hl=en');
+                        },),
                       ],
                     ),
                   ],
@@ -67,36 +56,11 @@ class Chapters extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 42),
               child: Container(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(width: 70,),
-                        Image(
-                          image: AssetImage('images/stc.png'),
-                          height: 100,
-                          width: 100,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 24,),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Student',
-                              style: kConstHeadingStyle.copyWith(fontSize: 24),
-                            ),
-                            SizedBox(height: 4,),
-                            Text('Technical', style: kConstHeadingStyle.copyWith(fontSize: 24)),
-                            SizedBox(height: 4,),
-                            Text('Community', style: kConstHeadingStyle.copyWith(fontSize: 24)),
-                          ],
-                        ),
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.start,
-                    ),
+                   SvgPicture.asset('images/siam.svg',height: 100,),
                     SizedBox(height: 16,),
-                    Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum venenatis ligula, vel tincidunt velit mattis non. Etiam sed nibh in dui lobortis semper. Vestibulum erat quam, aliquet sit amet magna quis, posuere elementum tortor. Pellentesque euismod orci tellus, a rhoncus orci porta eu. Etiam sed auctor ligula. Curabitur scelerisque eros lectus, non vulputate velit accumsan quis. Quisque sollicitudin, justo in lobortis varius, odio tortor aliquet mi, sit amet dignissim risus odio a tortor. ',style: kConstTextStyle),
+                    Text('Society for Industrial and Applied Mathematics - is a Student technical chapter in Vellore Institute of Technology- affiliated to SIAM International and it works for the application of Mathematics along with computational science to solve real life problems. It provides the required tools to students for developing their knowledge in various fields like Technical, Design and Editorial as per one’s own interest. It also works on developing the management skills of an individual by providing the recruits a chance to conduct a few cultural and technical events which give them an exposure and makes them work for the efficient coordination of the event.'),
                     SizedBox(
                       height: 8,
                     ),
@@ -105,11 +69,17 @@ class Chapters extends StatelessWidget {
                       children: [
                         Padding(padding: EdgeInsets.only(top: 4),child:  Text('Contact Us',style: kConstHeadingStyle.copyWith(fontSize: 16),),),
                         SizedBox(width: 18,),
-                        SvgPicture.asset('images/facebook.svg',color: Colors.white,height: 22,),
+                        GestureDetector(child: SvgPicture.asset('images/facebook.svg',color: Colors.white,height: 22,),onTap: (){
+                          launchURL('https://www.facebook.com/SIAMVIT');
+                        },),
                         SizedBox(width: 20,),
-                        SvgPicture.asset('images/linkedin.svg',color: Colors.white,height: 22,),
+                        GestureDetector(child: SvgPicture.asset('images/linkedin.svg',color: Colors.white,height: 22,),onTap: (){
+                          launchURL('https://www.linkedin.com/company/siam-vit/');
+                        },),
                         SizedBox(width: 20,),
-                        SvgPicture.asset('images/insta.svg',color: Colors.white,height: 22,),
+                        GestureDetector(child: SvgPicture.asset('images/insta.svg',color: Colors.white,height: 22,),onTap: (){
+                          launchURL('https://www.instagram.com/siamvit/?hl=en');
+                        },),
                       ],
                     ),
                   ],

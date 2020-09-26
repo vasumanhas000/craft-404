@@ -9,7 +9,7 @@ class SponsorTile extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 42),
       child: Container(
-        child: Image.network(byteImage,color: Colors.white,height: 100,width: 100,)
+        child: Image.network(byteImage,height: 100,width: 100,)
       ),
     );
   }
