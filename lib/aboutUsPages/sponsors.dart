@@ -20,8 +20,8 @@ class _SponsorsState extends State<Sponsors> {
           List<Widget> messageWidgets=[];
           for(var message in messages){
             final messageImage = message.data()['image'];
-            print(messageImage);
-            final messageWidget = SponsorTile(byteImage:messageImage,);
+            final messageLink = message.data()['link'];
+            final messageWidget = SponsorTile(byteImage:messageImage,link: messageLink,);
             messageWidgets.add(messageWidget);
           }
           return Padding(
